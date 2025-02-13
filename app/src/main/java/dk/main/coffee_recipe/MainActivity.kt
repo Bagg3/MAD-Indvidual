@@ -23,7 +23,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             CoffeeRecipeTheme {
                 val menuItemModels = listOf(MenuItemModel(
-                    "Recipe", ImageVector.vectorResource(id = R.drawable.baseline_sunny_24)
+                    "Coffee Recipe",
+                    ImageVector.vectorResource(id = R.drawable.baseline_sunny_24)
                 ) {
                     val intent = Intent(this, RecipesActivity::class.java)
                     startActivity(intent)
