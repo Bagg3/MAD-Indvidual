@@ -21,7 +21,7 @@ fun Home() {
         Box(modifier = Modifier.fillMaxSize()) {
             Image(
                 modifier = Modifier.fillMaxSize(),
-                painter = painterResource(R.drawable.coffee_recipe_pic),
+                painter = painterResource(R.drawable.background_pic_coffee),
                 contentDescription = "Coffee Recipe"
             )
         }

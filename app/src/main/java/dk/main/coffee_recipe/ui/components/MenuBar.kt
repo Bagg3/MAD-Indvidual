@@ -1,8 +1,7 @@
 package dk.main.coffee_recipe.ui.components
 
-import android.util.Log
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
@@ -14,46 +13,35 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
-import dk.main.coffee_recipe.ui.theme.CoffeeRecipeTheme
+
 
 @Composable
 fun MenuBar(title: String, modifier: Modifier = Modifier, onMenu: () -> Unit) {
-    Row(
+    Box(
         modifier = modifier.then(
             Modifier
                 .fillMaxWidth()
-                .background(MaterialTheme.colorScheme.onBackground)
+                .background(MaterialTheme.colorScheme.primaryContainer)
         )
     ) {
-        IconButton(onClick = onMenu) {
+        IconButton(
+            onClick = onMenu,
+            modifier = Modifier.align(Alignment.CenterStart)
+        ) {
             Icon(
                 imageVector = Icons.Default.Menu,
                 contentDescription = "MenuButton",
-                tint = MaterialTheme.colorScheme.onSurface
+                tint = MaterialTheme.colorScheme.onPrimaryContainer
             )
         }
+
         Text(
-            style = MaterialTheme.typography.bodyLarge.copy(
-                textAlign = TextAlign.Center,
-                color = MaterialTheme.colorScheme.onSurface
-            ),
-            modifier = modifier.then(
-                Modifier
-                    .weight(2f)
-                    .align(alignment = Alignment.CenterVertically)
-            ),
-            text = title
+            text = title,
+            style = MaterialTheme.typography.titleMedium,
+            color = MaterialTheme.colorScheme.onPrimaryContainer,
+            modifier = Modifier.align(Alignment.Center),
+            textAlign = TextAlign.Center
         )
     }
 }
 
-@Preview
-@Composable
-fun MenuBarPreview() {
-    CoffeeRecipeTheme(darkTheme = true) {
-        MenuBar(title = "MyApp") {
-            Log.v("App bar Preview", "Clicked")
-        }
-    }
-}
